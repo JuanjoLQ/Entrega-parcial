@@ -20,7 +20,11 @@ public class AccionLogin extends Accion{
 		
 		
 		String user = (String) request.getParameter("USERNAME");
-		String contrasena = (String) request.getParameter("PASS");
+		String pass = (String) request.getParameter("PASS");
+		
+		if(user == null){
+			return "login.jsp";
+		}
 		
 		Hashtable<String, Usuario> usuarios = (Hashtable<String, Usuario>) request.getServletContext().getAttribute("USUARIOS");
 		
@@ -28,10 +32,10 @@ public class AccionLogin extends Accion{
 			
 			Usuario usuario = usuarios.get(user);
 			
-			if(usuario.getPass().equals(contrasena)){
-				request.getSession().setAttribute("USUARIO", new Usuario(user, contrasena));
-				return "crud.jsp";
-				
+			if(usuario.getPass().equals(pass)){
+				request.getSession().setAttribute("USUARIO", new Usuario(user, pass));
+				request.getSession().setAttribute("ISADMIN", usuario.getAdmin());
+				return "crudProductos.jsp";
 			}
 			else {
 				return "login.jsp";

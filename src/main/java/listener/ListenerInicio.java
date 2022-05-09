@@ -8,9 +8,14 @@ import javax.servlet.annotation.WebListener;
 
 import acciones.Accion;
 import acciones.AccionBorrar;
+import acciones.AccionBorrarUsuarios;
 import acciones.AccionLogin;
 import acciones.AccionNuevo;
+import acciones.AccionNuevoUsuario;
+import acciones.AccionProductos;
 import acciones.AccionUpdate;
+import acciones.AccionUpdateUsuarios;
+import acciones.AccionUsuarios;
 import pojos.Producto;
 import pojos.Usuario;
 
@@ -59,9 +64,14 @@ public class ListenerInicio implements ServletContextListener {
     	*/
     	
     	this.acciones.put("LOGIN", new AccionLogin());
+    	this.acciones.put("USUARIOS", new AccionUsuarios());
+    	this.acciones.put("PRODUCTOS", new AccionProductos());
     	this.acciones.put("NEW", new AccionNuevo());
+    	this.acciones.put("NEWUSER", new AccionNuevoUsuario());
     	this.acciones.put("ELIMINAR", new AccionBorrar());
+    	this.acciones.put("ELIMINARUSER", new AccionBorrarUsuarios());
     	this.acciones.put("UPDATE", new AccionUpdate());
+    	this.acciones.put("UPDATEUSER", new AccionUpdateUsuarios());
     	
     	this.productos.put("1", new Producto("1", "manzana"));
     	this.productos.put("2", new Producto("2", "mandarina"));
@@ -71,6 +81,7 @@ public class ListenerInicio implements ServletContextListener {
     	sce.getServletContext().setAttribute("USUARIOS", this.usuarios);
     	sce.getServletContext().setAttribute("ACCIONES", this.acciones);
     	
+    	//sce.getServletContext().setAttribute("ISADMIN", (Boolean) false);
     	
          System.out.println("Estas en el listener");
     }

@@ -32,13 +32,7 @@ public class AccionUpdate extends Accion{
 			request.getSession().setAttribute("MSG", "Producto NO modificado");
 		}
 		
-		
-		
-		
-		
-		
-		
-		return "crud.jsp";
+		return "crudProductos.jsp";
 	}
 
 }

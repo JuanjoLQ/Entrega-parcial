@@ -30,7 +30,7 @@ public class AccionBorrar extends Accion{
 			request.getSession().setAttribute("MSG", "Producto NO eliminado");
 		}
 		
-		return "crud.jsp";
+		return "crudProductos.jsp";
 	}
 
 }

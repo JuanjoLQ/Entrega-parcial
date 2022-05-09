@@ -22,7 +22,6 @@ public class AccionNuevo extends Accion{
 		String newNombre = (String) request.getParameter("NEWNAME");
 		Hashtable<String, Producto> productos = (Hashtable<String, Producto>) request.getServletContext().getAttribute("PRODUCTOS");
 		
-		
 		if(newId != null && newNombre != null) {
 			
 			if(productos.containsKey(newId)) {
@@ -41,10 +40,8 @@ public class AccionNuevo extends Accion{
 			request.getSession().setAttribute("MSG", "Producto NO Creado");
 			
 		}
-		
-		return "crud.jsp";
-		
+		return "crudProductos.jsp";
 		
 	}
-
+		
 }

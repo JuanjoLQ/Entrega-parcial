@@ -53,7 +53,10 @@ public class Control extends HttpServlet {
 		
 		if(usuario != null) {
 			
+			System.out.println(parameterAccion);
+			
 			Accion accion = this.acciones.get(parameterAccion);
+			
 			if(accion != null) {
 				jsp += accion.ejecutar(request, response);
 				
@@ -70,7 +73,6 @@ public class Control extends HttpServlet {
 
 				jsp += "login.jsp";
 			}
-			
 			
 		}
 		System.out.println(jsp);
